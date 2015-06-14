@@ -16,18 +16,25 @@ public class FRNDMTNG {
 			double ans;
 			if(t1==0&&t2==0){
 				ans=0;
-			}else if(t1==0){
-				if(Math.min(T2+t2,T1)-t2<=0)
-					ans=0;
-				else
-					ans=(Math.min(T2+t2,T1)-t2)*1.0/T2;
-			}else if(t2==0){
-				if(Math.min(T1+t1,T2)-t1<=0)
-					ans=0;
-				else
-					ans=(Math.min(T1+t1,T2)-t1)*1.0/T1;
 			}else{
-				ans=0;
+				double x1=0,x2=0,a1=0,a2=0;
+				if(t1<T2){
+					x1=T2-t1;
+					a1=x1*x1*0.5;
+					if(x1>T1){
+						x1-=T1;
+						a1-=x1*x1*0.5;
+					}
+				}
+				if(t2<T1){
+					x2=T1-t2;
+					a2=x2*x2*0.5;
+					if(x2>T2){
+						x2-=T2;
+						a2-=x2*x2*0.5;
+					}
+				}
+				ans=(T1*T2-a1-a2)/(T1*T2);
 			}
 			out.println(String.format("%.6f",ans));
 		}
