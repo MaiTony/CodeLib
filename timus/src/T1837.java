@@ -1,4 +1,4 @@
-package solved;
+
 import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.LinkedList;

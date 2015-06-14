@@ -1,4 +1,4 @@
-package solved;
+
 import java.io.PrintWriter;
 import java.math.BigInteger;
 import java.util.Scanner;

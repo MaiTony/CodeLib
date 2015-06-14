@@ -1,4 +1,4 @@
-package solved;
+
 
 public class T1582 {
 
