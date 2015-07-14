@@ -2,52 +2,21 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class R307Div2C {
+
+public class R308Div2A {
+
 	public static void main(String[] args) {
 		FastScanner in=new FastScanner();
 		int n=in.nextInt();
-		int m=in.nextInt();
-		long[] a=new long[n];
-		long sum=0;
-		int maxi=0;
-		for(int i=0;i<n;i++){
-			a[i]=in.nextLong();
-			sum+=a[i];
-			if(a[i]>0)
-				maxi=i;
+		int sum=0;
+		while(n-->0){
+			int x1=in.nextInt();
+			int y1=in.nextInt();
+			int x2=in.nextInt();
+			int y2=in.nextInt();
+			sum+=(y2-y1+1)*(x2-x1+1);
 		}
-		
-		long lo=0;
-		long hi=sum+n;
-		
-		while(lo<hi){
-			long mid=lo+(hi-lo)/2;
-			int i=0;
-			int j=0;
-			long[] b=a.clone();
-			while(j<m&&i<=maxi){
-				j++;
-				long time=mid-i-1;
-				while(i<=maxi){
-					if(time==0||b[maxi]==0) break;
-					if(b[i]==0){
-						i++;
-						time--;
-					}else if(time>=b[i]){
-						time-=b[i];
-						b[i]=0;
-					}else{
-						b[i]-=time;
-						time=0;
-					}
-				}
-			}
-			if(b[maxi]==0)
-				hi=mid;
-			else
-				lo=mid+1;
-		}
-		System.out.println(hi);
+		System.out.println(sum);
 	}
 	static class FastScanner{
 		BufferedReader br;
